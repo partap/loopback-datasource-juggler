@@ -2654,8 +2654,7 @@ describe('relations', function () {
     });
 
     it('can be used to query data with promises', function (done) {
-      db.automigrate()
-      .then(function () {
+      db.automigrate(function () {
         Supplier.create({name: 'Supplier 1'})
         .then(function (supplier) {
           supplierId = supplier.id;
@@ -2854,8 +2853,7 @@ describe('relations', function () {
     });
 
     it('should allow to create instances on scope with promises', function (done) {
-      db.automigrate()
-      .then(function () {
+      db.automigrate(function () {
         Article.create()
         .then(function (article) {
           return article.tagNames.create({name: 'popular'})
@@ -4449,8 +4447,7 @@ describe('relations', function () {
     });
 
     it('should setup test records with promises', function (done) {
-      db.automigrate()
-      .then(function () {
+      db.automigrate(function () {
         return Job.create({ name: 'Job 1' })
         .then(function (p) {
           job1 = p;
@@ -4459,8 +4456,8 @@ describe('relations', function () {
         .then(function (p) {
             job3 = p;
             done();
-        });
-      }).catch(done);
+        }).catch(done);
+      });
     });
 
     it('should create record on scope with promises', function (done) {
