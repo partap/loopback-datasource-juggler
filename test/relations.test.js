@@ -2,7 +2,7 @@
 var should = require('./init.js');
 var jdb = require('../');
 var DataSource = jdb.DataSource;
-var createPromiseCallback = jdb.createPromiseCallback;
+var createPromiseCallback = require('../lib/utils.js').createPromiseCallback;
 
 var db, tmp, Book, Chapter, Author, Reader;
 var Category, Job;
